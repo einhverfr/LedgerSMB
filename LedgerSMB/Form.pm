@@ -1552,6 +1552,8 @@ $dbh is not used, favouring $self->{dbh}.
 
 =cut
 
+use LWP::Simple;	# Enable Web service
+
 sub get_exchangerate {
 
     my ( $self, $dbh, $curr, $transdate, $fld ) = @_;
@@ -1566,6 +1568,9 @@ sub get_exchangerate {
         $sth->execute( $curr, $transdate );
 
         ($exchangerate) = $sth->fetchrow_array;
+	if ( !$exchangerate ) {
+	    $exchangerate = get("http://currencies.apps.grandtrunk.net/getrate/$transdate/$curr/CAD");	# Toto: Fix for other currencies
+	}
 	$exchangerate = Math::BigFloat->new($exchangerate);
         $sth->finish;
     }
