@@ -74,6 +74,8 @@ use LedgerSMB::Setting;
 use Try::Tiny;
 use Carp;
 use DBI;
+use LWP::Simple;        # Enable Web service
+
 
 use charnames qw(:full);
 use open ':utf8';
@@ -1631,7 +1633,11 @@ sub get_exchangerate {
         $sth->execute( $curr, $transdate );
 
         ($exchangerate) = $sth->fetchrow_array;
-    $exchangerate = LedgerSMB::PGNumber->new($exchangerate);
+    if ( !$exchangerate ) {
+        # Todo: Fix for other currencies
+        $exchangerate = get("http://currencies.apps.grandtrunk.net/getrate/$transdate/$curr/CAD");
+    }
+        $exchangerate = LedgerSMB::PGNumber->new($exchangerate);
         $sth->finish;
     }
 
