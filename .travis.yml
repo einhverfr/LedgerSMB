@@ -6,6 +6,8 @@ env:
   global:
     - ARTIFACTS_BUCKET=lsmb-test
     - ARTIFACTS_REGION=us-west-2
+    - ARTIFACTS_PERMISSIONS=public-read
+    - ARTIFACTS_CACHE_CONTROL=public
     - ARTIFACTS_PATHS="${HOME}/built-dist/ledgersmb/screens:/tmp/plackup-access.log:/tmp/plackup-error.log"
     # aws creds encrypted for ehuelsmann's repo
     - secure: "opWrympryutbjOXsKWlNKEkN5p0Fnplwgr2qUEce00FisenDUqY4M5YnmZsT3JnBhMmVgbNftz+nx/2KyiFcn/lCOWu2pPSNLIbxzX0bR5tWa2Et8CtNyW1GDN54Asdp0C6tL7PeuqN5g0Ja1cZPdk4gfRAqoeRyfMvoO/2ixTM="
