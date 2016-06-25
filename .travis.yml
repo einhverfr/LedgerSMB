@@ -9,7 +9,6 @@ env:
     - ARTIFACTS_PERMISSIONS=public-read
     - ARTIFACTS_CACHE_CONTROL=public
     - ARTIFACTS_DEBUG=1
-    - ARTIFACTS_PATHS="${HOME}/built-dist/ledgersmb/screens:/tmp/plackup-access.log:/tmp/plackup-error.log"
     # aws creds encrypted for ehuelsmann's repo
     - secure: "opWrympryutbjOXsKWlNKEkN5p0Fnplwgr2qUEce00FisenDUqY4M5YnmZsT3JnBhMmVgbNftz+nx/2KyiFcn/lCOWu2pPSNLIbxzX0bR5tWa2Et8CtNyW1GDN54Asdp0C6tL7PeuqN5g0Ja1cZPdk4gfRAqoeRyfMvoO/2ixTM="
     - secure: "kdDv4dLLbft6p6/Kmy1RuW489l70XPhmt/zyDUGvd4Un9E9skbyTIEsFyeVNzatIzF9pOAJEM9zPDRn3luauK8fr0LJDUvYjWh66YHsob+mEPVZVOKpvWgQzVbGIIwmOXsk7LorEifjIwtxL7VRgC3+FtMmU4T15GLARBOPAfGA="
@@ -30,7 +29,13 @@ matrix:
       addons:
         postgresql: '9.4'
         sauce_connect: true
-        artifacts: true
+        artifacts:
+          paths:
+            - ${HOME}/built-dist/ledgersmb/screens
+            - /tmp/plackup-access.log
+            - /tmp/plackup-error.log
+            - /tmp/error.log
+            - /tmp/access.log
         apt:
           packages:
             - nginx
@@ -39,7 +44,13 @@ matrix:
     - perl: '5.20'
       addons:
         postgresql: "9.4"
-        artifacts: true
+        artifacts:
+          paths:
+            - ${HOME}/built-dist/ledgersmb/screens
+            - /tmp/plackup-access.log
+            - /tmp/plackup-error.log
+            - /tmp/error.log
+            - /tmp/access.log
         apt:
           packages:
             - nginx
@@ -48,7 +59,13 @@ matrix:
     - perl: '5.18'
       addons:
         postgresql: "9.4"
-        artifacts: true
+        artifacts:
+          paths:
+            - ${HOME}/built-dist/ledgersmb/screens
+            - /tmp/plackup-access.log
+            - /tmp/plackup-error.log
+            - /tmp/error.log
+            - /tmp/access.log
         apt:
           packages:
             - nginx
@@ -57,7 +74,13 @@ matrix:
     - perl: '5.16'
       addons:
         postgresql: "9.3"
-        artifacts: true
+        artifacts:
+          paths:
+            - ${HOME}/built-dist/ledgersmb/screens
+            - /tmp/plackup-access.log
+            - /tmp/plackup-error.log
+            - /tmp/error.log
+            - /tmp/access.log
         apt:
           packages:
             - nginx
@@ -66,7 +89,13 @@ matrix:
     - perl: '5.14'
       addons:
         postgresql: "9.2"
-        artifacts: true
+        artifacts:
+          paths:
+            - ${HOME}/built-dist/ledgersmb/screens
+            - /tmp/plackup-access.log
+            - /tmp/plackup-error.log
+            - /tmp/error.log
+            - /tmp/access.log
         apt:
           packages:
             - nginx
@@ -75,7 +104,13 @@ matrix:
     - perl: '5.12'
       addons:
         postgresql: "9.2"
-        artifacts: true
+        artifacts:
+          paths:
+            - ${HOME}/built-dist/ledgersmb/screens
+            - /tmp/plackup-access.log
+            - /tmp/plackup-error.log
+            - /tmp/error.log
+            - /tmp/access.log
         apt:
           packages:
             - nginx
@@ -84,7 +119,13 @@ matrix:
     - perl: '5.10'
       addons:
         postgresql: "9.3"
-        artifacts: true
+        artifacts:
+          paths:
+            - ${HOME}/built-dist/ledgersmb/screens
+            - /tmp/plackup-access.log
+            - /tmp/plackup-error.log
+            - /tmp/error.log
+            - /tmp/access.log
         apt:
           packages:
             - nginx
