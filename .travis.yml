@@ -30,12 +30,12 @@ matrix:
         postgresql: '9.4'
         sauce_connect: true
         artifacts:
+          perm: public-read
+          perms: public-read
           paths:
             - ${HOME}/built-dist/ledgersmb/screens
             - /tmp/plackup-access.log
             - /tmp/plackup-error.log
-            - /tmp/error.log
-            - /tmp/access.log
         apt:
           packages:
             - nginx
@@ -45,12 +45,12 @@ matrix:
       addons:
         postgresql: "9.4"
         artifacts:
+          perm: public-read
+          perms: public-read
           paths:
             - ${HOME}/built-dist/ledgersmb/screens
             - /tmp/plackup-access.log
             - /tmp/plackup-error.log
-            - /tmp/error.log
-            - /tmp/access.log
         apt:
           packages:
             - nginx
@@ -60,12 +60,12 @@ matrix:
       addons:
         postgresql: "9.4"
         artifacts:
+          perm: public-read
+          perms: public-read
           paths:
             - ${HOME}/built-dist/ledgersmb/screens
             - /tmp/plackup-access.log
             - /tmp/plackup-error.log
-            - /tmp/error.log
-            - /tmp/access.log
         apt:
           packages:
             - nginx
@@ -75,12 +75,12 @@ matrix:
       addons:
         postgresql: "9.3"
         artifacts:
+          perm: public-read
+          perms: public-read
           paths:
             - ${HOME}/built-dist/ledgersmb/screens
             - /tmp/plackup-access.log
             - /tmp/plackup-error.log
-            - /tmp/error.log
-            - /tmp/access.log
         apt:
           packages:
             - nginx
@@ -90,12 +90,12 @@ matrix:
       addons:
         postgresql: "9.2"
         artifacts:
+          perm: public-read
+          perms: public-read
           paths:
             - ${HOME}/built-dist/ledgersmb/screens
             - /tmp/plackup-access.log
             - /tmp/plackup-error.log
-            - /tmp/error.log
-            - /tmp/access.log
         apt:
           packages:
             - nginx
@@ -105,12 +105,12 @@ matrix:
       addons:
         postgresql: "9.2"
         artifacts:
+          perm: public-read
+          perms: public-read
           paths:
             - ${HOME}/built-dist/ledgersmb/screens
             - /tmp/plackup-access.log
             - /tmp/plackup-error.log
-            - /tmp/error.log
-            - /tmp/access.log
         apt:
           packages:
             - nginx
@@ -120,12 +120,12 @@ matrix:
       addons:
         postgresql: "9.3"
         artifacts:
+          perm: public-read
+          perms: public-read
           paths:
             - ${HOME}/built-dist/ledgersmb/screens
             - /tmp/plackup-access.log
             - /tmp/plackup-error.log
-            - /tmp/error.log
-            - /tmp/access.log
         apt:
           packages:
             - nginx
