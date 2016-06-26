@@ -7,11 +7,18 @@ use Carp;
 use Module::Runtime qw(use_module);
 
 use Moose;
+use Time::HiRes;
 use Weasel::FindExpanders::Dojo;
 use Weasel::FindExpanders::HTML;
 
 use Weasel::Widgets::Dojo;
 use Weasel::Widgets::HTML;
+use Weasel::Widgets::HTML::Button;
+use Weasel::Widgets::Dojo::Button;
+
+Weasel::Widgets::HTML::Button::after click => sub { sleep 1; };
+Weasel::Widgets::Dojo::Button::after click => sub { sleep 1; };
+
 
 has stash => (is => 'ro', required => 1);
 
@@ -25,6 +32,8 @@ sub open {
 
     $self->stash->{ext_wsl}->get($self->url);
     $self->stash->{page} = $self;
+
+    sleep 0.5;
 
     return $self;
 }
