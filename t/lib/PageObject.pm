@@ -17,7 +17,6 @@ use Weasel::Widgets::HTML::Button;
 use Weasel::Widgets::Dojo::Button;
 
 Weasel::Widgets::HTML::Button::after click => sub { sleep 1; };
-Weasel::Widgets::Dojo::Button::after click => sub { sleep 1; };
 
 
 has stash => (is => 'ro', required => 1);
