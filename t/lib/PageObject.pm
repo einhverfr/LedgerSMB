@@ -14,7 +14,7 @@ use Weasel::FindExpanders::HTML;
 use Weasel::Widgets::Dojo;
 use Weasel::Widgets::HTML;
 use Weasel::Widgets::HTML::Button;
-use Weasel::Widgets::Dojo::Button;
+
 
 Weasel::Widgets::HTML::Button::after click => sub { sleep 1; };
 
