@@ -13,10 +13,6 @@ use Weasel::FindExpanders::HTML;
 
 use Weasel::Widgets::Dojo;
 use Weasel::Widgets::HTML;
-use Weasel::Widgets::HTML::Button;
-
-
-Weasel::Widgets::HTML::Button::before click => sub { sleep 1; };
 
 
 has stash => (is => 'ro', required => 1);
