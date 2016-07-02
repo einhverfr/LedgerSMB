@@ -370,8 +370,8 @@ qq|<option value="$ref->{partsgroup}--$ref->{id}">$ref->{partsgroup}\n|;
 
         $delivery = qq|
           <td colspan=2 nowrap>
-             <b>${$delvar}</b>
-             <input class="date" data-dojo-type="lsmb/DateTextBox" name="${delvar}_$i" size=11 title="$myconfig{dateformat}" value="$form->{"${delvar}_$i"}">
+             <b><label for="deliverydate_$i">${$delvar}</label></b>
+             <input class="date" data-dojo-type="lsmb/DateTextBox" id="deliverydate_$i" name="deliverydate_$i" size=11 title="$myconfig{dateformat}" value="$form->{"${delvar}_$i"}">
           </td>
 |;
 
