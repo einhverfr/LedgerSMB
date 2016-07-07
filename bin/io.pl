@@ -404,7 +404,7 @@ qq|<option value="$ref->{partsgroup}--$ref->{id}">$ref->{partsgroup}\n|;
         }
 
         $column_data{runningnumber} =
-          qq|<td class="runningnumber"><input data-dojo-type="dijit/form/TextBox" name="runningnumber_$i" size=3 value=$i></td>|;
+          qq|<td class="runningnumber"><input data-dojo-type="dijit/form/TextBox" id="runningnumber_$i" name="runningnumber_$i" size=3 value=$i></td>|;
         if ($form->{"partnumber_$i"}){
             $column_data{deleteline} = qq|
 <td rowspan="2" valign="middle">
@@ -416,7 +416,7 @@ require('dijit/registry').byId('invoice-lines').removeLine('line-$i');
 </td>|;
            $column_data{partnumber} =
            qq|<td> $form->{"partnumber_$i"}
-                 <input type="hidden" name="partnumber_$i"
+                 <input type="hidden" id="partnumber_$i" name="partnumber_$i"
                        value="$form->{"partnumber_$i"}" /></td>|;
         } else {
             $column_data{deleteline} = '<td rowspan="2"></td>';
@@ -424,22 +424,22 @@ require('dijit/registry').byId('invoice-lines').removeLine('line-$i');
 qq|<td class="partnumber"><input data-dojo-type="lsmb/parts/PartSelector" data-dojo-props="required:false,channel: '/invoice/part-select/$i',fetchProperties:{type:'$parts_list'}" name="partnumber_$i" id="partnumber_$i" size=15 value="$form->{"partnumber_$i"}" accesskey="$i" title="[Alt-$i]" style="width:100%">$skunumber</td>|;
         }
         $column_data{qty} =
-qq|<td align=right class="qty"><input data-dojo-type="dijit/form/TextBox" name="qty_$i" title="$form->{"onhand_$i"}" size="5" value="|
+qq|<td align=right class="qty"><input data-dojo-type="dijit/form/TextBox" id="qty_$i" name="qty_$i" title="$form->{"onhand_$i"}" size="5" value="|
           . $form->format_amount( \%myconfig, $form->{"qty_$i"} )
           . qq|"></td>|;
         $column_data{ship} =
-            qq|<td align=right class="ship"><input data-dojo-type="dijit/form/TextBox" name="ship_$i" size="5" value="|
+            qq|<td align=right class="ship"><input data-dojo-type="dijit/form/TextBox" id="ship_$i" name="ship_$i" size="5" value="|
           . $form->format_amount( \%myconfig, $form->{"ship_$i"} )
           . qq|"></td>|;
         $column_data{unit} =
-          qq|<td class="unit"><input data-dojo-type="dijit/form/TextBox" name="unit_$i" size=5 value="$form->{"unit_$i"}"></td>|;
+          qq|<td class="unit"><input data-dojo-type="dijit/form/TextBox" id="unit_$i" name="unit_$i" size=5 value="$form->{"unit_$i"}"></td>|;
         $column_data{sellprice} =
-          qq|<td align=right class="sellprice"><input data-dojo-type="dijit/form/TextBox" name="sellprice_$i" size="9" value="|
+          qq|<td align=right class="sellprice"><input data-dojo-type="dijit/form/TextBox" id="sellprice_$i" name="sellprice_$i" size="9" value="|
           . $form->format_amount( \%myconfig, $form->{"sellprice_$i"},
             $form->{"precision_$i"} )
           . qq|"></td>|;
         $column_data{discount} =
-            qq|<td align=right class="discount"><input data-dojo-type="dijit/form/TextBox" name="discount_$i" size="3" value="|
+            qq|<td align=right class="discount"><input data-dojo-type="dijit/form/TextBox" id="discount_$i" name="discount_$i" size="3" value="|
           . $form->format_amount( \%myconfig, $form->{"discount_$i"} )
           . qq|"></td>|;
         $column_data{linetotal} =
@@ -448,7 +448,7 @@ qq|<td align=right class="qty"><input data-dojo-type="dijit/form/TextBox" name="
           . qq|</td>|;
         $column_data{bin}    = qq|<td class="bin">$form->{"bin_$i"}</td>|;
         $column_data{onhand} = qq|<td class="onhand">$form->{"onhand_$i"}</td>|;
-        $column_data{taxformcheck} = qq|<td class="taxform"><input type="checkbox" data-dojo-type="dijit/form/CheckBox" name="taxformcheck_$i" value="1" $taxchecked></td>|;
+        $column_data{taxformcheck} = qq|<td class="taxform"><input type="checkbox" data-dojo-type="dijit/form/CheckBox" id="taxformcheck_$i" name="taxformcheck_$i" value="1" $taxchecked></td>|;
         print qq|
 <tbody data-dojo-type="lsmb/InvoiceLine"
  id="line-$i">
