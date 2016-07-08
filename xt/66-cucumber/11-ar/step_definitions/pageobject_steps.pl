@@ -78,7 +78,7 @@ Then qr/I expect to see an invoice with (these|(\d+) empty) lines?/, sub {
         return;
     }
 
-    # my @keys = keys %{${C->data}[0]};
+    my @keys = keys %{${C->data}[0]};
     # foreach my $line (@{C->data}) {
     #     foreach my $key (keys %$line) {
     #         $line->{$key} =~ s/^\s+|\s+$//g;
