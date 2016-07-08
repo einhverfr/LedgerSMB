@@ -5,6 +5,7 @@ use warnings;
 
 use Carp;
 use PageObject;
+use PageObject::App::AR::Invoice::Lines;
 
 use Moose;
 extends 'PageObject';
@@ -35,6 +36,13 @@ sub select_customer {
     $elem->send_keys($customer);
 
     $self->find("*button", text => "Update")->click;
+    $self->session->page->body->maindiv->wait_for_content;
+}
+
+sub lines {
+    my ($self) = @_;
+
+    return $self->find('*invoice-lines')->lines;
 }
 
 __PACKAGE__->meta->make_immutable;
