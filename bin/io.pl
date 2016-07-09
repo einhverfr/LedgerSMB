@@ -483,12 +483,12 @@ qq|<td align=right class="qty"><input data-dojo-type="dijit/form/TextBox" id="qt
         {
             $form->{"notes_$i"} = $form->quote( $form->{"notes_$i"} );
             $notes =
-qq|<td><textarea data-dojo-type="dijit/form/Textarea" name="notes_$i" rows=$rows cols=36 wrap=soft>$form->{"notes_$i"}</textarea></td>|;
+qq|<td><textarea data-dojo-type="dijit/form/Textarea" id="notes_$i" name="notes_$i" rows=$rows cols=36 wrap=soft>$form->{"notes_$i"}</textarea></td>|;
         }
         else {
             $form->{"notes_$i"} = $form->quote( $form->{"notes_$i"} );
             $notes =
-qq|<td><input data-dojo-type="dijit/form/TextBox" name="notes_$i" size=38 value="$form->{"notes_$i"}"></td>|;
+qq|<td><input data-dojo-type="dijit/form/TextBox" id="notes_$i" name="notes_$i" size=38 value="$form->{"notes_$i"}"></td>|;
         }
 
         $serial = qq|

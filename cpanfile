@@ -89,6 +89,7 @@ on 'develop' => sub {
     requires 'HTML::Lint';
     requires 'Module::CPANfile'; # for 01.2-deps.t
     requires 'Perl::Critic';
+    requires 'PGObject::Type::DateTime', '1.0.4';
     requires 'Pherkin::Extension::Weasel', '0.02';
     requires 'Test::BDD::Cucumber', '0.50';
     requires 'Test::Exception';

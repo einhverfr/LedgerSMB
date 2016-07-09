@@ -20,7 +20,7 @@ Scenario: Creation of a new sales invoice
       | Item | Number | Description | Qty | Unit | Price | %    | TaxForm |
       | 1    | p1     | p1          | 0   |      |  0.00 |    0 |         |
      And I expect to see an invoice with these document properties:
-      | name            | value      |
+      | property        | value      |
       | Invoice Created | @today@    |
       | Due Date        | @today@    |
       | Order Number    |            |
@@ -31,4 +31,4 @@ Scenario: Creation of a new sales invoice
       | Shipping Point  |            |
       | Ship via        |            |
       | Notes           |            |
-      | Internal notes  |            |
+      | Internal Notes  |            |
