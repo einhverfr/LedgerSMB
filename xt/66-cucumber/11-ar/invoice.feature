@@ -4,7 +4,8 @@ Feature: AR transaction document handling
   save them and post them, with or without separation of duties
   and search for them.
 
-
+# Note: the scenario below depends on weasel-dojo which hasn't been written yet
+@wip
 Scenario: Creation of a new sales invoice
    Given a standard test company
 # Should have been: And a logged in sales user
