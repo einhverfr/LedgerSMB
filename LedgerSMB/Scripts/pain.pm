@@ -1,5 +1,5 @@
 package LedgerSMB::Scripts::pain;
-use LedgerSMB::Pain;
+use LedgerSMB::PAIN;
 
 sub pain_xml {
     my ($request) = @_;
