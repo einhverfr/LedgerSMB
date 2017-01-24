@@ -107,9 +107,9 @@ $self->set_class_name is called.
 
 =cut
 
-our %classes = ( 1 => $locale->text('Billing'),
-                 2 => $locale->text('Sales'),
-                 3 => $locale->text('Shipping'),
+our %classes = ( 1 => eval { $locale->text('Billing') } // 'Billing',
+                 2 => eval { $locale->text('Sales') } // 'Sales',
+                 3 => eval { $locale->text('Shipping') } // 'Shipping',
 );
 
 has 'class_name' => (is => 'rw', isa => 'Str', required => 0);
