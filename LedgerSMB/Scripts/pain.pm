@@ -8,8 +8,8 @@ sub pain_xml {
        user     => $request->{_user},
        locale   => $request->{_locale},
        path     => 'UI/payments',
-       template => 'payments_filter',
-       format   => 'HTML',
+       template => 'pain001-template',
+       format   => 'XML',
     );
     $template->render($pain);
 }

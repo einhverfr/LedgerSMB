@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03">
+	<CstmrCdtTrfInitn>
+		<GrpHdr>
+			<MsgId><?lsmb pain.msgid ?></MsgId>
+			<CreDtTm><?lsmb pain.processtime ?></CreDtTm>
+			<NbOfTxs><?lsmb pain.num_payments ?></NbOfTxs>
+			<CtrlSum><?lsmb pain.fx_sum ?></CtrlSum>
+			<InitgPty>
+				<Nm><?lsmb pain.company.name ?></Nm>
+				<PstlAdr>
+					<StrtNm><?lsmb pain.company.street ?></StrtNm>
+					<BldgNb><?lsmb pain.company.st_number ?></BldgNb>
+					<PstCd><?lsmb pain.company.postcode ?></PstCd>
+					<TwnNm><?lsmb pain.company.city ?></TwnNm>
+					<Ctry><?lsmb pain.company.country ?></Ctry>
+				</PstlAdr>
+			</InitgPty>
+		</GrpHdr>
+		<PmtInf>
+			<PmtInfId><?lsmb pain.infid ?></PmtInfIds>
+			<PmtMtd>TRF</PmtMtd>
+			<BtchBookg>false</BtchBookg>
+			<ReqdExctnDt><?lsmb postdate ?></ReqdExctnDt>
+			<Dbtr>
+				<Nm><?lsmb pain.company.name ?></Nm>
+				<PstlAdr>
+					<StrtNm><?lsmb pain.company.street ?></StrtNm>
+					<BldgNb><?lsmb pain.company.st_number ?></BldgNb>
+					<PstCd><?lsmb pain.company.postcode ?></PstCd>
+					<TwnNm><?lsmb pain.company.city ?></TwnNm>
+					<Ctry><?lsmb pain.company.country ?></Ctry>
+				</PstlAdr>
+			</Dbtr>
+			<DbtrAcct>
+				<Id>
+					<Othr>
+						<Id><?lsmb pain.account.ban ?></Id>
+					</Othr>
+				</Id>
+			</DbtrAcct>
+			<DbtrAgt>
+				<FinInstnId>
+					<BIC><?lsmb pain.account.bic ?></BIC>
+				</FinInstnId>
+			</DbtrAgt>
+			<?lsmb count = 1;
+			FOR pay IN PAYMENTS -?>
+			<CdtTrfTxInf>
+				<PmtId>
+					<InstrId><?lsmb pain.msgid ?>/<?lsmb count ?></InstrId>
+					<EndToEndId><?lsmb pay.source ?>/<?lsb postdate ?></EndToEndId>
+				</PmtId>
+				<Amt>
+					<InstdAmt Ccy="EUR"><?lsmb pay.amount ?></InstdAmt>
+				</Amt>
+				<ChrgBr>SHAR</ChrgBr>
+				<CdtrAgt>
+					<FinInstnId>
+						<BIC><?lsmb pay.entity.bic ?></BIC>
+					</FinInstnId>
+				</CdtrAgt>
+				<Cdtr>
+					<Nm><?lsmb pay.entity.name ?></Nm>
+					<PstlAdr>
+						<?lsmb FOR l IN pay.lines -?>
+						<AdrLine><?lsmb l ?></AdrLine>
+					</PstlAdr>
+				</Cdtr>
+				<CdtrAcct>
+					<Id>
+						<Othr>
+							<Id><?lsmb pay.entity.bank.iban ?></Id>
+						</Othr>
+					</Id>
+				</CdtrAcct>
+				<Purp>
+					<Cd>CINV</Cd>
+				</Purp>
+				<RmtInf>
+					<Strd>
+						<RfrdDocInf>
+							<Nb><?lsmb pay.invoice.invnumber ?></Nb>
+							<RltdDt><?lsmb pay.invoice.invdate ?></RltdDt>
+						</RfrdDocInf>
+					</Strd>
+				</RmtInf>
+			</CdtTrfTxInf>
+			<?lsmb END # for loop -?>
+		</PmtInf>
+	</CstmrCdtTrfInitn>
+</Document>
