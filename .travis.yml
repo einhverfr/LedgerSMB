@@ -23,7 +23,7 @@ matrix:
         sauce_connect: true
         apt:
           packages:
-            - nginx postgresql-9.6-pgtap
+            - nginx postgresql-9.6-pgtap node-uglify
       env:
         - TEST_SAUCE=1
     - perl: '5.24'
@@ -32,7 +32,7 @@ matrix:
         sauce_connect: true
         apt:
           packages:
-            - nginx postgresql-9.5-pgtap
+            - nginx postgresql-9.5-pgtap node-uglify
       env:
         - TEST_SAUCE=1
         - DOJO_BUILT=0
@@ -41,7 +41,7 @@ matrix:
         postgresql: "9.4"
         apt:
           packages:
-            - nginx postgresql-9.4-pgtap
+            - nginx postgresql-9.4-pgtap node-uglify
       env:
         - COVERAGE=1
     - perl: '5.20'
@@ -49,7 +49,7 @@ matrix:
         postgresql: "9.4"
         apt:
           packages:
-            - nginx postgresql-9.4-pgtap
+            - nginx postgresql-9.4-pgtap node-uglify
       env:
         - COA_TESTING=1
     - perl: '5.18'
@@ -57,7 +57,7 @@ matrix:
         postgresql: "9.3"
         apt:
           packages:
-            - nginx postgresql-9.3-pgtap
+            - nginx postgresql-9.3-pgtap node-uglify
       env:
         - DB_TESTING=1
     - perl: '5.16'
@@ -65,7 +65,7 @@ matrix:
         postgresql: "9.2"
         apt:
           packages:
-            - nginx postgresql-9.2-pgtap
+            - nginx postgresql-9.2-pgtap node-uglify
       env:
         - DB_TESTING=1
     - perl: '5.14'
@@ -73,7 +73,7 @@ matrix:
         postgresql: "9.2"
         apt:
           packages:
-            - nginx postgresql-9.2-pgtap
+            - nginx postgresql-9.2-pgtap node-uglify
       env:
         - DB_TESTING=1
 
@@ -105,8 +105,6 @@ before_install:
   - export PATH="$HOME/locallib/bin:$PATH"
   - export PERL_MM_OPT="INSTALL_BASE=$HOME/locallib"
   - export PERL_MB_OPT="--install_base=$HOME/locallib"
-  - sudo apt install -qqy uglifyjs
-  - npm install uglify-js
 
 install:
   - cpanm --quiet --notest --with-develop --with-feature=edi --with-feature=xls --installdeps .
