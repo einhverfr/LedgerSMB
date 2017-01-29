@@ -119,6 +119,14 @@ our @COLUMNS = (
       money => 1,
      pwidth => '2', },
 
+   {col_id => 'pain_file',
+      name => LedgerSMB::Report::text('PAIN.001 file'),
+      type => 'href',
+    pwidth => '2',
+  href_base => 'pain.pl?action=pain_xml&id=',
+  },
+
+
 );
 
 sub columns {
@@ -261,6 +269,7 @@ sub run_report{
     my @rows = $self->exec_method({funcname => 'batch__search'});
     for my $r (@rows){
        $r->{row_id} = $r->{id};
+       $r->{pain_xml} = $r->{id};
     }
     $self->rows(\@rows);
 }
