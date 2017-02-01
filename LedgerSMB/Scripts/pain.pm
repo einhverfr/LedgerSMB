@@ -3,7 +3,7 @@ use LedgerSMB::PAIN;
 
 sub pain_xml {
     my ($request) = @_;
-    my $pain = PAIN->get_info($request->{id});
+    my $pain = LedgerSMB::PAIN->get_info($request->{id});
     my $template = LedgerSMB::Template->new(
        user     => $request->{_user},
        locale   => $request->{_locale},

@@ -269,7 +269,7 @@ sub run_report{
     my @rows = $self->exec_method({funcname => 'batch__search'});
     for my $r (@rows){
        $r->{row_id} = $r->{id};
-       $r->{pain_xml} = $r->{id};
+       $r->{pain_file} = $r->{id};
     }
     $self->rows(\@rows);
 }

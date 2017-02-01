@@ -29,16 +29,23 @@ sub get_payment_batch {
     return \@list;
 }
 
-sub get_pain_info {
+sub get_setting {
+    my ($self, $key)  = @_;
+    my $set = LedgerSMB::Setting->get("pain_$key");
+    return '' unless defined $set;
+    return $set->value;
+}
+
+sub get_info {
     my ($self, $id);
     my $pain = {};
     bless $pain, $self;
     $pain->{company} = { 
-           map { $_ => LedgerSMB::Setting->get("pain_$_")->value }
-           qw( companyname streetname buildingnumber postcode coty country )
+           map { $_ => $self->get_setting($_) }
+           qw( companyname streetname buildingnumber postcode state country )
     };
     $pain->{company}->{account} = {
-           map { $_ => LedgerSMB::Setting->get("pain_$_")->value }
+           map { $_ => $self->get_setting($_) }
            qw( bic ban )
     };
     $pain->{processtime} = _get_nowstring();
