@@ -117,7 +117,11 @@ sub columns {
 
          {col_id => 'salesperson_name',
             type => 'text',
-            name => LedgerSMB::Report::text('Salesperson') };
+            name => LedgerSMB::Report::text('Salesperson') },
+
+         {col_id => 'transdate',
+            type => 'text',
+            name => LedgerSMB::Report::text('Invoice Date') };
 
     return $cols;
 }
